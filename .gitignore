@@ -6,3 +6,4 @@ crash.log
 *.info
 *.lock.*
 secret*
+*.txt
