@@ -17,11 +17,13 @@ module "github_repository" {
 }
 
 module "gke_cluster" {
-  source         = "github.com/den-vasyliev/tf-google-gke-cluster"
-  GOOGLE_REGION  = var.GOOGLE_REGION
-  GOOGLE_PROJECT = var.GOOGLE_PROJECT
-  GKE_NUM_NODES  = 3
+  source           = "github.com/den-vasyliev/tf-google-gke-cluster"
+  GOOGLE_REGION    = var.GOOGLE_REGION
+  GOOGLE_PROJECT   = var.GOOGLE_PROJECT
+  GKE_NUM_NODES    = 2
+  GKE_MACHINE_TYPE = var.GKE_MACHINE_TYPE
 }
+
 
 provider "flux" {
   kubernetes = {
@@ -65,7 +67,7 @@ module "gke-workload-identity" {
 module "kms" {
   source          = "github.com/den-vasyliev/terraform-google-kms"
   project_id      = var.GOOGLE_PROJECT
-  keyring         = "sops-flux-1"
+  keyring         = "sops-flux-2"
   location        = "global"
   keys            = ["sops-key-flux"]
   prevent_destroy = false

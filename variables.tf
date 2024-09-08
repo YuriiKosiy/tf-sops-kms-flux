@@ -9,6 +9,12 @@ variable "GOOGLE_REGION" {
   description = "GCP region to use"
 }
 
+variable "GKE_MACHINE_TYPE" {
+  type        = string
+  default     = "e2-medium"
+  description = "Machine type"
+}
+
 variable "GITHUB_OWNER" {
   type        = string
   description = "The GitHub owner"
@@ -30,4 +36,10 @@ variable "FLUX_GITHUB_TARGET_PATH" {
   type        = string
   default     = "clusters"
   description = "Flux manifests subdirectory"
+}
+
+variable "GKE_CLUSTER_NAME" {
+  description = "The name of the GKE cluster"
+  type        = string
+  default     = "main"
 }
