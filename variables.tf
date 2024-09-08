@@ -11,7 +11,7 @@ variable "GOOGLE_REGION" {
 
 variable "GKE_MACHINE_TYPE" {
   type        = string
-  default     = "e2-medium"
+  default     = "e2-standard-8"
   description = "Machine type"
 }
 
